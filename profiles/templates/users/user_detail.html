@@ -1,8 +1,15 @@
+
 <h1>User Info</h1>
 <div>
   <ul>
     <li>{{user.first_name}} {{user.last_name}}</li>
     <li>{{user.picture}}</li>
-    <li>{{user.pet}}</li>
+    <li><a href = "{% url 'pets_list' user_id=user.id %}">Pets:</a></li>
+    
   </ul>
 </div>
+<hr/>
+<div>
+  <a href = "{% url 'user_list' %}">Back</a>
+
+  

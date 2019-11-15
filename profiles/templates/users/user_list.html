@@ -1,9 +1,13 @@
-<h1>Users</h1><h3><a href="{% url 'new_user'  %}">New User</a></h3>
+<div>
+  
+ <h3><a href="{% url 'new_user'  %}">New User</a></h3>   
+
 <hr>
 <br>
 {% for user in users %}
 <h3><a href="{% url 'user_detail' user_id=user.id %}">{{ user.last_name }}, {{ user.first_name }}</a></h3>
 <h4>Pet:{{user.pet}}</h4>
-<h5><a href = "{% url 'edit_user' user_id=user.id %}">Edit User | </a>    <a href="{% url 'delete_user' user_id=user.id %}">Delete User</a></h5>
+<h5><a href = "{% url 'edit_user' user_id=user.id %}">Edit User |   </a>  <a href="{% url 'delete_user' user_id=user.id %}">Delete User |    </a><a href ="{% url 'match_list' user_id=user.id  %}">Matches</a>
 <hr>
+
 {% endfor %}

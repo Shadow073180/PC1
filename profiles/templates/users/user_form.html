@@ -1,5 +1,9 @@
+
 <h2>{{ type_of_request }} User</h2>
 <form method="POST">{% csrf_token %}
   {{ form.as_p }}
+  <a href ="{% url 'new_pet' user_id=user.id%}">create new pet</a>
   <button type="submit">Save</button>
 </form>
+<hr>
+<a href = "{% url 'user_list' %}">Back</a>

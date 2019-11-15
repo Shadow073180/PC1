@@ -8,6 +8,7 @@ class User(models.Model):
     last_name = models.CharField(max_length=65)
     picture = models.ImageField()
     pet = models.ForeignKey('Pet', on_delete=models.CASCADE, related_name='users')
+    
 
     def __str__(self):
         return f'First:{self.first_name} Last:{self.last_name} Pet:{self.pet}'
@@ -19,7 +20,7 @@ class Pet(models.Model):
         return self.name
 
 class Match(models.Model):
-    user_id = models.ForeignKey('User', on_delete=models.CASCADE, related_name='matches')
+    user = models.ForeignKey('User', on_delete=models.CASCADE, related_name='matches')
 
     def __str__(self):
         return self.user_id
